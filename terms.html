@@ -11,12 +11,14 @@
       href="https://didahdx.github.io/calculatorView/terms.html"
     />
     <meta name="theme-color" content="#f5f4ef" />
+    <meta name="color-scheme" content="light dark" />
+    <script src="/calculatorView/theme.js"></script>
     <meta
       name="description"
       content="Terms of use and important limits of the Kenya PAYE Calculator's salary estimates."
     />
     <title>Terms of use | Kenya PAYE Calculator</title>
-    <link rel="stylesheet" crossorigin href="/calculatorView/assets/legal-DTkOxCcf.css">
+    <link rel="stylesheet" crossorigin href="/calculatorView/assets/legal-CwC1u9em.css">
   </head>
   <body>
     <div class="app-shell privacy-shell">
@@ -26,7 +28,17 @@
             <span class="brand-mark">K<span>·</span></span>
             <span>KENYA PAYE <em>CALCULATOR</em></span>
           </a>
-          <a class="header-link" href="./">Back to calculator</a>
+          <div class="header-actions">
+            <a class="header-link" href="./">Back to calculator</a>
+            <label class="theme-selector"
+              ><span>Theme</span>
+              <select data-theme-control>
+                <option value="system">System</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </label>
+          </div>
         </div>
       </header>
       <main class="container privacy-page">

@@ -11,12 +11,14 @@
       href="https://didahdx.github.io/calculatorView/privacy.html"
     />
     <meta name="theme-color" content="#f5f4ef" />
+    <meta name="color-scheme" content="light dark" />
+    <script src="/calculatorView/theme.js"></script>
     <meta
       name="description"
       content="How the Kenya PAYE Calculator handles pay, consulting and website visit data."
     />
     <title>Privacy | Kenya PAYE Calculator</title>
-    <link rel="stylesheet" crossorigin href="/calculatorView/assets/legal-DTkOxCcf.css">
+    <link rel="stylesheet" crossorigin href="/calculatorView/assets/legal-CwC1u9em.css">
   </head>
   <body>
     <div class="app-shell privacy-shell">
@@ -26,14 +28,24 @@
             <span class="brand-mark">K<span>·</span></span>
             <span>KENYA PAYE <em>CALCULATOR</em></span>
           </a>
-          <a class="header-link" href="./">Back to calculator</a>
+          <div class="header-actions">
+            <a class="header-link" href="./">Back to calculator</a>
+            <label class="theme-selector"
+              ><span>Theme</span>
+              <select data-theme-control>
+                <option value="system">System</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </label>
+          </div>
         </div>
       </header>
       <main class="container privacy-page">
         <span class="eyebrow">YOUR DATA</span>
         <h1>Privacy notice</h1>
         <p class="privacy-lead">
-          This notice describes the current calculator. Last reviewed 4 November
+          This notice describes the current calculator. Last reviewed 6 November
           2026.
         </p>
         <div class="privacy-callout">
@@ -94,6 +106,19 @@
         </section>
 
         <section>
+          <h2>Appearance preference</h2>
+          <p>
+            Choosing Light or Dark saves only that preference in your browser's
+            local storage under <code>kenya-paye-calculator:theme</code>. It
+            stays on this browser until you choose System or clear the site's
+            browser data. System follows your device's appearance setting. The
+            preference is shared by this site's calculator and policy pages and
+            is not sent to a server. If browser storage is unavailable, the
+            choice works for the current page only. No pay, tax, pension,
+            insurance or loan inputs are included in this preference.
+          </p>
+        </section>
+        <section>
           <h2>Cookies and other tracking</h2>
           <p>
             The current calculator code does not set cookies, load analytics or
@@ -105,13 +130,14 @@
         <section>
           <h2>Your choices and rights</h2>
           <p>
-            Use the relevant reset button or reload the page to clear pay and
-            consulting figures from the current tab. Because the app does not
-            store those figures, it cannot retrieve or delete a past
-            calculation. Kenya’s data protection law provides rights concerning
-            personal data held by an operator or its hosting provider, including
-            rights to information, access, correction, objection and deletion
-            where applicable. Read the
+            Reload or close the page to clear pay and consulting figures from
+            browser memory. Reset to example keeps one temporary undo copy until
+            your next edit or reload. Because the app does not persist those
+            figures, it cannot retrieve or delete a past calculation. Kenya’s
+            data protection law provides rights concerning personal data held by
+            an operator or its hosting provider, including rights to
+            information, access, correction, objection and deletion where
+            applicable. Read the
             <a
               href="https://www.odpc.go.ke/rights-of-a-data-subject/"
               target="_blank"
