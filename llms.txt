@@ -1,0 +1,22 @@
+# Kenya PAYE Calculator
+
+> Independent browser-based planning tool for Kenyan resident employees, with historical PAYE estimates and a separate 2026 resident-individual consultancy illustration. Not affiliated with or endorsed by KRA.
+
+This guide covers https://didahdx.github.io/calculatorView/. Calculations run locally in the browser; salary and other financial inputs are not sent to a server or included in URLs.
+
+Historical October 2009–September 2024 results estimate PAYE only, not take-home pay. October 2024–October 2026 has the full modeled payroll breakdown. November 2026–December 2031 dates are planning estimates using October 2026 rules unchanged; later changes are not included and actual pay may differ. Consultant mode is a separate 2026 illustration and does not use employee payroll deductions.
+
+Results are estimates, not official payslips, tax assessments or personal advice. Eligibility, documentation, benefits and employer records can affect actual figures. Check the applicable official sources and consult the employer, KRA or a qualified adviser. Annual × 12 multiplies a monthly scenario; it is not a forecast of future tax rules. Loan and contribution tools are planning illustrations.
+
+This file provides a content guide, not crawling restrictions or a grant of copyright or training rights. The website owner retains ownership of original content and code; third-party notices apply only to their respective resources.
+
+## Website
+
+- [Calculator and official rule sources](https://didahdx.github.io/calculatorView/): Interactive payroll estimates, assumptions, dated rules and government source links.
+- [Privacy notice](https://didahdx.github.io/calculatorView/privacy.html): Financial-input handling, theme preference storage and hosting considerations.
+- [Terms of use](https://didahdx.github.io/calculatorView/terms.html): Supported scenarios, limitations and independent status.
+
+## Optional
+
+- [Sitemap](https://didahdx.github.io/calculatorView/sitemap.xml): Public indexable pages.
+- [KRA PAYE guidance](https://www.kra.go.ke/individual/filing-paying/types-of-taxes/paye): Official PAYE information; check effective dates before applying a rule.

@@ -1,0 +1,6 @@
+# Serve this file at https://didahdx.github.io/robots.txt to make it effective.
+# A copy under /calculatorView/ does not control crawler access.
+User-agent: *
+Allow: /
+
+Sitemap: https://didahdx.github.io/calculatorView/sitemap.xml
