@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; script-src &#39;self&#39;; style-src &#39;self&#39;; img-src &#39;self&#39;; font-src &#39;self&#39;; connect-src &#39;none&#39;; object-src &#39;none&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;">
+    <meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; script-src &#39;self&#39; &#39;sha256-v9UNUD15+Fhu5gWlg6nFdNYIIsvZM05FwzVZnWFgnLc=&#39;; style-src &#39;self&#39;; img-src &#39;self&#39;; font-src &#39;self&#39;; connect-src &#39;none&#39;; object-src &#39;none&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;">
 
     <meta charset="UTF-8" />
     <meta name="referrer" content="no-referrer" />
@@ -12,7 +12,90 @@
     />
     <meta name="theme-color" content="#f5f4ef" />
     <meta name="color-scheme" content="light dark" />
-    <script src="/calculatorView/theme.js"></script>
+    <script id="theme-bootstrap">// Runs before page styles. Only this presentation preference is persisted.
+(() => {
+  const key = "kenya-paye-calculator:theme";
+  const root = document.documentElement;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  const normalize = (value) =>
+    value === "light" || value === "dark" ? value : "system";
+  const read = () => {
+    try {
+      return normalize(localStorage.getItem(key));
+    } catch {
+      return "system";
+    }
+  };
+  let preference = read();
+  function apply() {
+    const resolved =
+      preference === "system"
+        ? system.matches
+          ? "dark"
+          : "light"
+        : preference;
+    root.dataset.theme = resolved;
+    root.dataset.themePreference = preference;
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.content = resolved === "dark" ? "#101713" : "#f5f4ef";
+    document
+      .querySelectorAll("select[data-theme-control]")
+      .forEach((select) => {
+        select.value = preference;
+      });
+    document.dispatchEvent(new Event("paye-theme-change"));
+  }
+  function choose(value) {
+    preference = normalize(value);
+    try {
+      if (preference === "system") localStorage.removeItem(key);
+      else localStorage.setItem(key, preference);
+    } catch {
+      /* The choice still works for this page when storage is blocked. */
+    }
+    apply();
+  }
+  function requested(event) {
+    choose(event.detail);
+  }
+  function changed(event) {
+    if (
+      event.target instanceof HTMLSelectElement &&
+      event.target.hasAttribute("data-theme-control")
+    )
+      choose(event.target.value);
+  }
+  function stored(event) {
+    if (event.key === key || event.key === null) {
+      preference = read();
+      apply();
+    }
+  }
+  function systemChanged() {
+    if (preference === "system") apply();
+  }
+  let controller;
+  function connect() {
+    controller?.abort();
+    controller = new AbortController();
+    const options = { signal: controller.signal };
+    document.addEventListener("paye-theme-request", requested, options);
+    document.addEventListener("change", changed, options);
+    window.addEventListener("storage", stored, options);
+    system.addEventListener("change", systemChanged, options);
+    apply();
+  }
+  window.addEventListener("pagehide", () => controller?.abort());
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      preference = read();
+      connect();
+    }
+  });
+  document.addEventListener("DOMContentLoaded", apply, { once: true });
+  connect();
+})();
+</script>
     <meta
       name="description"
       content="How the Kenya PAYE Calculator handles pay, consulting and website visit data."
